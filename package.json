@@ -1,0 +1,30 @@
+{
+  "name": "dat-hansard",
+  "version": "1.0.0",
+  "description": "Scrapes data.openaustralia.org to dump data into a dat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdockray/dat-hansard.git"
+  },
+  "keywords": [
+    "dat",
+    "openaustralia",
+    "scraper"
+  ],
+  "author": "Sean Dockray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdockray/dat-hansard/issues"
+  },
+  "homepage": "https://github.com/sdockray/dat-hansard#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "mkdirp": "^0.5.1",
+    "promise": "^8.0.1",
+    "requests": "^0.2.2"
+  }
+}

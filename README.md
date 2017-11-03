@@ -43,3 +43,7 @@ dat-hansard
 # Will create archives as directories in /path/somewhere
 dat-hansard -d /path/somewhere
 ```
+
+## To Do
+
+[ ] For members, the files are re-downloaded and overwritten on each run. It would be best to compare last updated or file size before overwriting what is already there.

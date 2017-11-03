@@ -23,6 +23,7 @@
   "homepage": "https://github.com/sdockray/dat-hansard#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "dat-node": "^3.5.5",
     "mkdirp": "^0.5.1",
     "promise": "^8.0.1",
     "requests": "^0.2.2"

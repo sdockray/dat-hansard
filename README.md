@@ -4,8 +4,16 @@ First, thanks to [Open Australia](http://openaustralia.org) for making this data
 
 My purpose in making this is to make [Dat](http://dat.land) archives of the data
 
-But right now, this is really just **scrape-hansard**. I need to make the dat archives using the Dat CLI. 
+## Datasets
 
-All of which makes me think, duh, it would be best if Open Australia just made these archives and I synced it!
+* Members information
+* House of Representatives Hansard transcripts
+* Senate Hansard transcripts
 
-So, here is a repo for scraping the Open Australia easily-accessible data for whatever that's worth.
+The archived datasets are listed above. You can mirror them yourself by just running:
+
+```
+
+```
+
+If you find that these archives have fallen behind, no one is mirroring them, etc. then it might be time to run this software yourself and create new archives. But for now, the best thing would be to mirror them by installing dat and running the commands above.

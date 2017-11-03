@@ -1,6 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var Promise = require('promise');
+var Dat = require('dat-node');
 var mkdirp = require('mkdirp');
 var fs = require('fs');
 
@@ -12,11 +13,22 @@ var membersUrl = 'http://data.openaustralia.org/members/';
 var membersDir = 'data/members/';
 
 
+// Downloads a file at url to a specific location
 function dl(url, loc) {
+  console.log('Downloading: ', url);
   return request(url).pipe(fs.createWriteStream(loc));
 }
 
+// Imports contents of directory to a dat
+function datify(dir) {
+  Dat(dir, function (err, dat) {
+    if (err) throw err;
+    dat.importFiles()
+    console.log('dat://', dat.key.toString('hex'),' - ', dir);
+  })
+}
 
+// Scrapes a url (which lists file contents) into dir
 function scrape(url, dir, overwriteExisting) {
   mkdirp(dir);
       
@@ -49,7 +61,9 @@ function scrape(url, dir, overwriteExisting) {
       // Go through promises
       Promise.all(promises.map(function(href) {
         return dl(url + href, dir + href);
-      }));
+      })).done(function() {
+        return datify(dir);
+      });
     }
   });
 

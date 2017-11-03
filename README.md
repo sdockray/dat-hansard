@@ -17,3 +17,18 @@ The archived datasets are listed above. You can mirror them yourself by just run
 ```
 
 If you find that these archives have fallen behind, no one is mirroring them, etc. then it might be time to run this software yourself and create new archives. But for now, the best thing would be to mirror them by installing dat and running the commands above.
+
+## Installation
+
+```
+npm install -g dat-hansard
+```
+
+## Running the script
+
+```
+# Will create archives as directories in the current working directory
+dat-hansard 
+# Will create archives as directories in /path/somewhere
+dat-hansard -d /path/somewhere
+```

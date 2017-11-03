@@ -1,4 +1,7 @@
 data/
+representatives_debates/
+senate_debates/
+members/
 node_modules/
 *.log
 .dat

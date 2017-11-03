@@ -3,14 +3,15 @@ var cheerio = require('cheerio');
 var Promise = require('promise');
 var Dat = require('dat-node');
 var mkdirp = require('mkdirp');
+var path = require('path');
 var fs = require('fs');
 
 var representativesDebatesUrl = 'http://data.openaustralia.org/scrapedxml/representatives_debates/';
-var representativesDebatesDir = 'data/representatives_debates/';
+var representativesDebatesDir = 'representatives_debates/';
 var senateDebatesUrl = 'http://data.openaustralia.org/scrapedxml/senate_debates/';
-var senateDebatesDir = 'data/senate_debates/';
+var senateDebatesDir = 'senate_debates/';
 var membersUrl = 'http://data.openaustralia.org/members/';
-var membersDir = 'data/members/';
+var membersDir = 'members/';
 
 
 // Downloads a file at url to a specific location
@@ -69,6 +70,26 @@ function scrape(url, dir, overwriteExisting) {
 
 }
 
-scrape(representativesDebatesUrl, representativesDebatesDir);
-scrape(senateDebatesUrl, senateDebatesDir);
-scrape(membersUrl, membersDir, true);
+//
+function representativesToDat(baseDir) {
+  var dirToUse = (baseDir) ? path.join(baseDir, representativesDebatesDir) : representativesDebatesDir;
+  scrape(representativesDebatesUrl, dirToUse);
+}
+
+//
+function senateToDat(baseDir) {
+  var dirToUse = (baseDir) ? path.join(baseDir, senateDebatesDir) : senateDebatesDir;
+  scrape(senateDebatesUrl, dirToUse);
+}
+
+//
+function membersToDat(baseDir) {
+  var dirToUse = (baseDir) ? path.join(baseDir, membersDir) : membersDir;
+  console.log(dirToUse);
+  scrape(membersUrl, dirToUse, true);
+}
+
+// Exports
+module.exports.representativesToDat = representativesToDat;
+module.exports.senateToDat = senateToDat;
+module.exports.membersToDat = membersToDat;

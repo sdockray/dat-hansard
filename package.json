@@ -1,6 +1,6 @@
 {
   "name": "dat-hansard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scrapes data.openaustralia.org to dump data into a dat",
   "main": "index.js",
   "scripts": {
